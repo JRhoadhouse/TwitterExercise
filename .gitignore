@@ -30,3 +30,7 @@
 *.exe
 *.out
 *.app
+/TwitterExercise/bin/Debug/netcoreapp2.1
+/TwitterExercise/obj/Release/netcoreapp2.1
+/TwitterExercise/obj/Debug/netcoreapp2.1
+/.vs/TwitterExercise/v15/Server/sqlite3
