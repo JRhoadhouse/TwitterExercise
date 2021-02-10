@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using Unity;
 
 namespace TwitterExercise
 {
@@ -10,12 +11,19 @@ namespace TwitterExercise
         {
             try
             {
-                ILog log = new LogConsole();
-                IRawDataQueue rdq = new RdqMemory(log);
-                ISocialMediaProvider smp = new SmpTwitterSample(log);
-                IDataStore ds = new DsMemory(log);
-                IAnalyzer analyzer = new AnalyzerLocal(log);
-                IReporter reporter = new ReporterConsole(log);
+                UnityContainer container = new UnityContainer();
+                container.RegisterType<ILog, LogConsole>();
+                container.RegisterType<IRawDataQueue, RdqMemory>();
+                container.RegisterType<ISocialMediaProvider, SmpTwitterSample>();
+                container.RegisterType<IDataStore, DsMemory>();
+                container.RegisterType<IAnalyzer, AnalyzerLocal>();
+                container.RegisterType<IReporter, ReporterConsole>();
+
+                IRawDataQueue rdq = container.Resolve<IRawDataQueue>();
+                ISocialMediaProvider smp = container.Resolve<ISocialMediaProvider>();
+                IDataStore ds = container.Resolve<IDataStore>();
+                IAnalyzer analyzer = container.Resolve<IAnalyzer>();
+                IReporter reporter = container.Resolve<IReporter>();
 
                 //Set up a cancellation token to end the collection when appropriate
                 using (CancellationTokenSource cancellationTokenSource = new CancellationTokenSource())
