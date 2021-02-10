@@ -9,6 +9,8 @@ namespace TwitterExercise
 {
     class EmojiDataProvider
     {
+        //This version of c# does not allow static methods in interfaces so this is left un-abstracted
+        //If updated to c# v8 this class can be set up with an interface for more maintainable code.
         static public  List<EmojiData> GetEmojiData(ILog log)
         {
             List<EmojiData> retVal = new List<EmojiData>();
