@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TwitterExercise
 {
-    class LogConsole : ILog
+    public class LogConsole : ILog
     {
         public void Write(string message)
         {

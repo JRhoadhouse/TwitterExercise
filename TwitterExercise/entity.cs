@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TwitterExercise
 {
-    class entity
+    internal class entity
     {
         public List<Hashtag> hashtags;
         public List<url> urls;

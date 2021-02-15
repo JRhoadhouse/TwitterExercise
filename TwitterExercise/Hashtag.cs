@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TwitterExercise
 {
-    class Hashtag
+    internal class Hashtag
     {
         public string tag;
     }

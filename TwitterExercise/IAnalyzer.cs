@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TwitterExercise
 {
-    interface IAnalyzer
+    public interface IAnalyzer
     {
         Task Analyze(IRawDataQueue rawData, IDataStore store, CancellationToken cancel);
     }

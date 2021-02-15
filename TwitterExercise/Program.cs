@@ -2,10 +2,13 @@
 using System.Threading;
 using System.Threading.Tasks;
 using Unity;
+using System.Runtime.CompilerServices;
 
+
+[assembly: InternalsVisibleTo("Tests")]
 namespace TwitterExercise
 {
-    class Program
+    internal class Program
     {
         static void Main(string[] args)
         {

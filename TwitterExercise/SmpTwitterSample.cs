@@ -10,7 +10,7 @@ using System.Text;
 
 namespace TwitterExercise
 {
-    class SmpTwitterSample :ISocialMediaProvider
+    public class SmpTwitterSample :ISocialMediaProvider
     {
         private ILog _log;
         public SmpTwitterSample(ILog log)

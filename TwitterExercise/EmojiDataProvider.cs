@@ -7,7 +7,7 @@ using System.Security.Permissions;
 
 namespace TwitterExercise
 {
-    class EmojiDataProvider
+    internal class EmojiDataProvider
     {
         //This version of c# does not allow static methods in interfaces so this is left un-abstracted
         //If updated to c# v8 this class can be set up with an interface for more maintainable code.

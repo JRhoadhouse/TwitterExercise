@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TwitterExercise
 {
-    class url
+    internal class url
     {
         public string expanded_url;
     }

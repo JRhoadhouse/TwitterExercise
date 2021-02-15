@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TwitterExercise
 {
-    class RdqMemory : IRawDataQueue
+    public class RdqMemory : IRawDataQueue
     {
         private Queue<string> _data;
         private ILog _log;

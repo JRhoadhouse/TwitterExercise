@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TwitterExercise
 {
-    class DsMemory : IDataStore
+    public class DsMemory : IDataStore
     {
         private List<TweetMetadata> _data;
         private ILog _log;

@@ -5,9 +5,12 @@ using System.Threading.Tasks;
 using System.Threading;
 using System.Linq;
 
+using Newtonsoft.Json;
+using System.IO;
+
 namespace TwitterExercise
 {
-    class ReporterConsole : IReporter
+    public class ReporterConsole : IReporter
     {
         private ILog _log;
         public ReporterConsole(ILog log)
@@ -43,6 +46,13 @@ namespace TwitterExercise
                 {
                     //retrieve data
                     List<TweetMetadata> tweets = ds.Retrieve();
+
+                    //begin capture sample
+                    using (TextWriter tw = new StreamWriter(@"testdata.json"))
+                    {
+                        tw.Write(JsonConvert.SerializeObject(tweets));
+                    }
+
                     string report = string.Empty;
 
                     //count and time metrics

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TwitterExercise
 {
-    interface ISocialMediaProvider
+    public interface ISocialMediaProvider
     {
         Task Retrieve(IRawDataQueue rdq, CancellationToken cancel);
     }

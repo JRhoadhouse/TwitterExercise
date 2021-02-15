@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TwitterExercise
 {
-    class EmojiData
+    public class EmojiData
     {
         public string name;
         public string unified;

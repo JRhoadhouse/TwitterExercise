@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TwitterExercise
 {
-    class Attachments
+    internal class Attachments
     {
         public List<string> media_keys;
     }

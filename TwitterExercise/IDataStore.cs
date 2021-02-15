@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TwitterExercise
 {
-    interface IDataStore
+    public interface IDataStore
     {
         void Store(TweetMetadata post);
         List<TweetMetadata> Retrieve();

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TwitterExercise
 {
-    interface IRawDataQueue
+    public interface IRawDataQueue
     {
         void Add(string data);
         string Retrieve();

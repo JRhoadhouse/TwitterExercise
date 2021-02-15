@@ -6,7 +6,7 @@ using System.Threading;
 
 namespace TwitterExercise
 {
-    interface IReporter
+    public interface IReporter
     {
         Task Send(IDataStore ds, CancellationToken cancel);
     }

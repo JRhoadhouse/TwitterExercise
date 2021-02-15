@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TwitterExercise", "TwitterE
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AC831C20-FB00-461F-A465-F632809C1944}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NUnitTwitterExerciseTest", "NUnitTwitterExerciseTest\NUnitTwitterExerciseTest.csproj", "{5FA4A934-983D-49FB-91BB-4C158A44139A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,6 +19,10 @@ Global
 		{64E84AAF-E066-488C-89B7-1EA275F0A7F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{64E84AAF-E066-488C-89B7-1EA275F0A7F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{64E84AAF-E066-488C-89B7-1EA275F0A7F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FA4A934-983D-49FB-91BB-4C158A44139A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FA4A934-983D-49FB-91BB-4C158A44139A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FA4A934-983D-49FB-91BB-4C158A44139A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FA4A934-983D-49FB-91BB-4C158A44139A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

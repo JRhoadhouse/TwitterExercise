@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace TwitterExercise
 {
-    class AnalyzerLocal: IAnalyzer
+    public class AnalyzerLocal: IAnalyzer
     {
         private ILog _log;
         private List<EmojiData> _emojis;
@@ -97,7 +97,6 @@ namespace TwitterExercise
                                             .Select(x => message.includes.media.FirstOrDefault(m => m.media_key == x).type)
                                             .Distinct().ToList()
                             });
-                            rawData = rdq.Retrieve();
                         }
                         catch (Exception ex)
                         {

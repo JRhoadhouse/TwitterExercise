@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TwitterExercise
 {
-    class Message
+    internal class Message
     {
         public MessageData data;
         public MediaList includes;
