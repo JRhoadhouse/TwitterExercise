@@ -16,9 +16,9 @@ namespace TwitterExercise
             {
                 UnityContainer container = new UnityContainer();
                 container.RegisterType<ILog, LogConsole>();
-                container.RegisterType<IRawDataQueue, RdqMemory>();
+                container.RegisterType<IRawDataQueue, RdqMemoryThreadSafe>();
                 container.RegisterType<ISocialMediaProvider, SmpTwitterSample>();
-                container.RegisterType<IDataStore, DsMemory>();
+                container.RegisterType<IDataStore, DsMemoryThreadSafe>();
                 container.RegisterType<IAnalyzer, AnalyzerLocal>();
                 container.RegisterType<IReporter, ReporterConsole>();
 

@@ -35,8 +35,8 @@ namespace NUnitTwitterExerciseTests
             {
                 container = new UnityContainer();
                 container.RegisterType<ILog, LogConsole>();
-                container.RegisterType<IRawDataQueue, RdqMemory>();
-                container.RegisterType<IDataStore, DsMemory>();
+                container.RegisterType<IRawDataQueue, RdqMemoryThreadSafe>();
+                container.RegisterType<IDataStore, DsMemoryThreadSafe>();
 
                 inner = new Exception("Inner Exception");
                 outer = new Exception("Outer Exception", inner);
@@ -152,6 +152,47 @@ namespace NUnitTwitterExerciseTests
             Assert.Pass();
         }
 
+
+        [Test]
+        public void rdqMemoryThreadSafe()
+        {
+            try
+            {
+                IRawDataQueue rdqm = new RdqMemoryThreadSafe(log);
+                foreach (string s in rdqTestStrings)
+                {
+                    rdqm.Add(s);
+                }
+                rdqm.Add(string.Empty);
+                rdqm.Add(" ");
+                rdqm.Add(null);
+                if (rdqm.Count() != rdqValidStrings)
+                {
+                    Assert.Fail("rdqMemory did not add correct number of strings expected:{0}, actual:{1}",
+                        rdqValidStrings, rdqm.Count());
+                }
+                foreach (string s in rdqTestStrings)
+                {
+                    if (!string.IsNullOrWhiteSpace(s))
+                    {
+                        string data = rdqm.Retrieve();
+                        if (data != s)
+                        {
+                            Assert.Fail(
+                                "rdqMemory did not retrieve the proper string expected:\"{0}\", actual:\"{1}\"",
+                                s, data);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Assert.Fail("An exception occurred in rdqMemoryThreadSafe Test.  See details below:({0})\n{1}\n{2}",
+                    ex.HResult, ex.Message, ex.StackTrace);
+            }
+            Assert.Pass();
+        }
+
         // testing configuration manager
         [Test]
         public void configTest()
@@ -221,6 +262,40 @@ namespace NUnitTwitterExerciseTests
             try
             {
                 IDataStore dsMemory = new DsMemory(log);
+                foreach (TweetMetadata tmd in dataStoreTestData)
+                {
+                    dsMemory.Store(tmd);
+                }
+                List<TweetMetadata> retrieves = dsMemory.Retrieve();
+                if (dataStoreTestData.Count != retrieves.Count)
+                {
+                    Assert.Fail("DSMemory has incorrect number of items\nExpected:{0}\nRetrieved:{1}",
+                        dataStoreTestData.Count, retrieves.Count);
+                }
+                foreach (TweetMetadata tmd in dataStoreTestData)
+                {
+                    if (!retrieves.Any(x => x.Equals(tmd)))
+                    {
+                        Assert.Fail("Could not find tweet {0} in DSMemory test", tmd.Id);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Assert.Fail(
+                    "An exception occurred in DSMemoryTest.  See details below:({0})\n{1}\n{2}",
+                    ex.HResult, ex.Message, ex.StackTrace);
+            }
+            Assert.Pass("Stored and retrieved {0} items with DSMemory.", dataStoreTestData.Count);
+        }
+
+
+        [Test]
+        public void DSMemoryThreadSafeTest()
+        {
+            try
+            {
+                IDataStore dsMemory = new DsMemoryThreadSafe(log);
                 foreach (TweetMetadata tmd in dataStoreTestData)
                 {
                     dsMemory.Store(tmd);
